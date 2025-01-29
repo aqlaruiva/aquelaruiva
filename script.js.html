@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">// Смена языка</p>
+<p class="p1">function changeLanguage(lang) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const elements = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>'pt': {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'bio': "Autora desde 2019. Ex-membro da comunidade de escritores da CEI. Publicações anteriores no Litres.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'about-text': "Olá, sou Di Curzi, escritora apaixonada desde 2019. Participei da comunidade de autores dos países da CEI e publiquei no Litres. Atualmente, continuo escrevendo e compartilhando minhas histórias."</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>'ua': {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'bio': "Автор з 2019 року. Колишній учасник спільноти письменників СНД. Попередні публікації на Літресі.",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'about-text': "Привіт, я Di Curzi, письменниця з 2019 року. Я брала участь у спільноті авторів країн СНД і публікувалася на Літресі. Зараз продовжую писати і ділитися своїми історіями."</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('bio').textContent = elements[lang]['bio'];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('about-text').textContent = elements[lang]['about-text'];</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Добавление книги</p>
+<p class="p1">function addBook() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const bookList = document.getElementById('book-list');</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let bookTitle = prompt("Digite o título do livro:");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let bookCover = prompt("Insira o link da imagem da capa:");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (bookTitle &amp;&amp; bookCover) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let bookDiv = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>bookDiv.className = "book";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>bookDiv.innerHTML = `&lt;img src="${bookCover}" alt="Capa do Livro"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;h3&gt;${bookTitle}&lt;/h3&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>bookList.appendChild(bookDiv);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Счётчик просмотров</p>
+<p class="p1">if (localStorage.pageViews) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>localStorage.pageViews = Number(localStorage.pageViews) + 1;</p>
+<p class="p1">} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>localStorage.pageViews = 1;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">document.addEventListener("DOMContentLoaded", function () {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const footer = document.querySelector("footer p");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer.textContent += ` | Visualizações: ${localStorage.pageViews}`;</p>
+<p class="p1">});</p>
+</body>
+</html>
